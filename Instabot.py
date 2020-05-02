@@ -231,13 +231,7 @@ class InstagramBot():
                 return following
                     
     
-    def followRequestList(self):
-        try:
-            self.browser.get('https://www.instagram.com/accounts/activity/')
-            time.sleep(2)
-            self.browser.find_element_by_css_selector("button").click()
-        except:
-            print('No connection.')
+    
     def analysis(self,follower,following):
 
         '''Return three sets traitor,fans,friends respectively.
