@@ -38,7 +38,10 @@ class InstagramBot():
                 pwdInput.send_keys(self.password)
                 pwdInput.send_keys(Keys.ENTER)
                 # notification disabled
-                ui.WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,".aOOlW.HoLwm"))).click()
+                try:
+                    ui.WebDriverWait(self.browser,10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,".aOOlW.HoLwm"))).click()
+                except:
+                    pass
                 print('Signed In Succesfully')
                 self.browser.get('https://www.instagram.com/'+self.username+'/')
                 time.sleep(2)
@@ -235,7 +238,6 @@ class InstagramBot():
     def analysis(self,follower,following):
 
         '''Return three sets traitor,fans,friends respectively.
-
             Traitor:-These are the list of people who are not following you back.
             Fans:-These are the list of people whom you are not following back.
             Friends:-These are your friends which are maintaining a symbiotic relationship.'''
@@ -257,5 +259,3 @@ class InstagramBot():
 
     def __str__(self):
         return f'{self.username}-{self.password}'
-
-
