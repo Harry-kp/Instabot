@@ -259,3 +259,9 @@ class InstagramBot():
 
     def __str__(self):
         return f'{self.username}-{self.password}'
+
+    
+a = InstagramBot(os.environ.get('INSTA_ID'),os.environ.get('INSTA_PWD'))
+t,f,s = a.analysis(set(a.followerList()),set(a.followingList()))
+print(t)
+a.closeBot()
